@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta property="og:title" content="MDM: Human Motion Diffusion Model"/>
+  <meta property="og:url" content="https://guytevet.github.io/mdm-page/"/>
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+
+
+  <title>MAS: Multi-view Ancestral Sampling for 3D motion generation using 2D diffusion</title>
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+  rel="stylesheet">
+  <link rel="icon" href="static/figures/icon2.png">
+
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script src="static/js/index.js"></script>
+</head>
+
+<body>
+
+
+
+<section class="publication-header">
+  <div class="hero-body">
+    <div class="container is-max-widescreen">
+      <!-- <div class="columns is-centered"> -->
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">MAS: Multi-view Ancestral Sampling for 3D motion generation using 2D diffusion</h1>
+        </div>
+    </div>
+  </div>
+
+</section>
+
+<section class="publication-author-block">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><a href="https://scholar.google.com/citations?user=FAQOuSgAAAAJ&hl=en" target="_blank">Roy Kapon</a>,</span>
+            <span class="author-block"><a href="https://guytevet.github.io/" target="_blank">Guy Tevet</a>,</span>
+            <span class="author-block"><a href="https://danielcohenor.com/" target="_blank">Daniel Cohen-Or</a>,</span>
+            <span class="author-block"><a href="https://www.cs.tau.ac.il/~amberman/" target="_blank">Amit H. Bermano</a>
+
+            
+            
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">Tel Aviv University, Israel</span> 
+          </div>
+          
+
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <span class="link-block">
+                <a href="" target="_blank"
+                  class="external-link button is-normal is-rounded">
+                  <span class="icon">
+                    <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+
+              
+              <span class="link-block">
+                <a href="https://github.com/roykapon/MAS" target="_blank"
+                class="external-link button is-normal is-rounded">
+                <span class="icon">
+                  <i class="fab fa-github"></i>
+                </span>
+                <span>Code</span>
+              </a>
+
+              </span>
+
+              <span class="link-block">
+                <a href="" target="_blank"
+                class="external-link button is-normal is-rounded">
+                <span class="icon">
+                  <i class="fa fa-database"></i>
+                </span>
+                <span>Datasets (coming soon)</span>
+              </a>
+
+              </span>
+
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+<div class="container">
+
+   <div class="column is-centered has-text-centered">
+                        <video poster="" id="tree" playsinline autoplay muted loop width="120%">
+                            <source src="static/figures/video_teaser.mp4"
+                                    type="video/mp4">
+                        </video>
+                    </div>
+                  </div>
+
+</section>
+
+
+
+
+</section>
+
+
+<section class="section hero is-light">
+    <div class="container is-max-desktop">
+        <!-- Abstract. -->
+        <div class="columns is-centered has-text-centered">
+            <div class="column is-four-fifths">
+                <div class="content has-text-justified">
+                    <p>
+Multi-view Ancestral Sampling (MAS) is using a 2D motion diffusion model to generate novel high-quality 3D motions. This technique enables learning intricate motions from monocular data only. 
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!--/ Abstract. -->
+    </div>
+</section>
+
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+        <div class="item">
+    <!-- <h2 class="title is-3">Overview</h2> -->
+
+<div class="container">
+      <div class="column is-centered has-text-centered">
+        <img src="static/figures/teaser.jpg" alt="Overview" width="100%"/>
+      </div>
+    </div>
+      
+          </div>
+    </div>
+
+     
+    
+  </div>
+</div>
+</div>
+</section>
+
+
+
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <div class="item">
+        
+        <div class="content has-text-justified">
+          <p>
+We introduce Multi-view Ancestral Sampling (MAS), a method for generating consistent multi-view 2D samples of a motion sequence, enabling
+the creation of its corresponding 3D counterpart. While abundant 2D samples are readily available, such as those found in videos, 3D data collection is involved and expensive, often requiring specialized motion-capture systems. MAS leverages diffusion models trained solely on 2D data to produce coherent and realistic 3D motions. This is achieved by simultaneously applying multiple ancestral sampling processes to denoise multiple 2D sequences representing the same motion from different angles. Our consistency block ensures 3D consistency at each 
+diffusion step by combining the individual generations into a unified 3D sequence, and projecting it back to the original views for the next iteration. We evaluate MAS using 2D pose data from intricate and unique motions, including professional basketball maneuvers, rhythmic gymnastic performances featuring ball apparatus interactions, and horse obstacle course races. In each of these domains, MAS generates diverse, high-quality, and unprecedented 3D sequences that would otherwise require expensive equipment and intensive human labor to obtain.
+          </p>
+          </div>
+          
+        </div>
+	  </div>
+    </div>
+    <!--/ Abstract. -->
+  </div>
+</section>
+
+
+
+<section class="hero is-small">
+    <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-centered has-text-centered">
+<!--         <h2 class="title is-3">How does it work?</h2> -->
+
+         <h2 class="title is-3">Horse Jumping Contests</h2>
+
+    </div>
+  </div>
+</div>
+
+  <div class="hero-body">
+
+    <div class="container">
+
+      <div id="results-carousel" class="carousel results-carousel">
+
+      <div class="column is-centered has-text-centered">
+                <video poster="" id="tree" autoplay controls muted loop height="100%">
+          <source src="static/figures/horse1.mp4"
+          type="video/mp4">
+        </video>
+      </div>
+
+      <div class="column is-centered has-text-centered">
+                <video poster="" id="tree" autoplay controls muted loop height="100%">
+          <source src="static/figures/horse2.mp4"
+          type="video/mp4">
+        </video>
+      </div>
+      <div class="column is-centered has-text-centered">
+                <video poster="" id="tree" autoplay controls muted loop height="100%">
+          <source src="static/figures/horse3.mp4"
+          type="video/mp4">
+        </video>
+      </div>
+
+      <div class="column is-centered has-text-centered">
+                <video poster="" id="tree" autoplay controls muted loop height="100%">
+          <source src="static/figures/horse4.mp4"
+          type="video/mp4">
+        </video>
+      </div>
+  </div>
+</div>
+</div>
+</section>
+
+
+
+<section class="section hero is-light">
+    <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-centered has-text-centered">
+<!--         <h2 class="title is-3">How does it work?</h2> -->
+
+         <h2 class="title is-3">Rhythmic Gymnastics with a Ball</h2>
+
+    </div>
+  </div>
+</div>
+
+  <div class="hero-body">
+
+    <div class="container">
+
+      <div id="results-carousel" class="carousel results-carousel">
+
+      <div class="column is-centered has-text-centered">
+                <video poster="" id="tree" autoplay controls muted loop height="100%">
+          <source src="static/figures/gym1.mp4"
+          type="video/mp4">
+        </video>
+      </div>
+
+            <div class="column is-centered has-text-centered">
+                <video poster="" id="tree" autoplay controls muted height="100%">
+          <source src="static/figures/gym3.mp4"
+          type="video/mp4">
+      </div>
+
+            <div class="column is-centered has-text-centered">
+                <video poster="" id="tree" autoplay controls muted height="100%">
+          <source src="static/figures/gym2.mp4"
+          type="video/mp4">
+      </div>
+  </div>
+</div>
+</div>
+</section>
+
+
+
+
+
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+
+          <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-centered has-text-centered">
+<!--         <h2 class="title is-3">How does it work?</h2> -->
+
+         <h2 class="title is-3">NBA Motions - Comparison </h2>
+
+    </div>
+  </div>
+</div>
+
+                    <div class="column is-centered has-text-centered">
+                        <video poster="" id="tree" playsinline autoplay muted loop width="90%">
+                            <source src="static/figures/comparison.mp4"
+                                    type="video/mp4">
+                        </video>
+                    </div>
+     
+    
+  </div>
+</div>
+</div>
+</section>
+
+
+
+
+
+<footer class="footer">
+  <div class="columns is-centered has-text-centered">
+    <div class="column is-8">
+      <div class="content">
+        <p>
+          This website is licensed under a <a rel="license"
+          href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+        Commons Attribution-ShareAlike 4.0 International License</a>.
+      </p>
+      <p>
+        Website source code based on the <a href="https://nerfies.github.io/"> Nerfies</a> project page. If you want to reuse their <a
+        href="https://github.com/nerfies/nerfies.github.io">source code</a>, please credit them appropriately.
+      </p>
+    </div>
+  </div>
+</div>
+</div>
+</footer>
+
+
+  <script type="text/javascript">
+    var sc_project=12351448; 
+    var sc_invisible=1; 
+    var sc_security="c676de4f"; 
+  </script>
+  <script type="text/javascript"
+  src="https://www.statcounter.com/counter/counter.js"
+  async></script>
+  <noscript><div class="statcounter"><a title="Web Analytics"
+    href="https://statcounter.com/" target="_blank"><img
+    class="statcounter"
+    src="https://c.statcounter.com/12351448/0/c676de4f/1/"
+    alt="Web Analytics"></a></div></noscript>
+    <!-- End of Statcounter Code -->
+
+  </body>
+  </html>
