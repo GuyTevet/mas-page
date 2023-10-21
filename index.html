@@ -181,9 +181,20 @@ Multi-view Ancestral Sampling (MAS) is using a 2D motion diffusion model to gene
         
         <div class="content has-text-justified">
           <p>
-We introduce Multi-view Ancestral Sampling (MAS), a method for generating consistent multi-view 2D samples of a motion sequence, enabling
-the creation of its corresponding 3D counterpart. While abundant 2D samples are readily available, such as those found in videos, 3D data collection is involved and expensive, often requiring specialized motion-capture systems. MAS leverages diffusion models trained solely on 2D data to produce coherent and realistic 3D motions. This is achieved by simultaneously applying multiple ancestral sampling processes to denoise multiple 2D sequences representing the same motion from different angles. Our consistency block ensures 3D consistency at each 
-diffusion step by combining the individual generations into a unified 3D sequence, and projecting it back to the original views for the next iteration. We evaluate MAS using 2D pose data from intricate and unique motions, including professional basketball maneuvers, rhythmic gymnastic performances featuring ball apparatus interactions, and horse obstacle course races. In each of these domains, MAS generates diverse, high-quality, and unprecedented 3D sequences that would otherwise require expensive equipment and intensive human labor to obtain.
+          We introduce Multi-view Ancestral Sampling (MAS), a method for generating consistent multi-view 2D samples of a motion sequence, enabling
+the creation of its 3D counterpart.
+MAS leverages a diffusion model trained solely on 2D data, opening opportunities to exciting and diverse fields of motion
+previously under-explored as 3D data is scarce an hard to collect. MAS works by simultaneously
+denoising multiple 2D motion sequences representing the same motion from different angles.
+Our consistency block ensures consistency across all views at each
+diffusion step by combining the individual generations into a unified 3D sequence, and projecting it back to the original views for the next iteration.
+We demonstrate MAS on 2D pose data
+acquired from videos depicting professional basketball maneuvers, rhythmic gymnastic performances featuring a ball apparatus,
+and horse obstacle course races.
+In each of these domains, 3D motion capture is arduous, and yet, MAS generates diverse and realistic 3D sequences without textual conditioning.
+As we demonstrate, our ancestral sampling-based approach offers a more natural integration with the diffusion framework compared to popular denoising optimization-based approaches, and
+avoids
+common issues such as out-of-domain sampling, lack of details and mode-collapse.
           </p>
           </div>
           
